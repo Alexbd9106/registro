@@ -1,0 +1,290 @@
+<form [formGroup]="form" (submit)="onCreateAspirante()" *ngIf="!isLoading">
+  <p style="text-align: justify;">Información: Todos los campos con un '*' son obligatorios. Cualquier introducción erronea de los datos es responsabilidad de cada usuario y no de la Administración de este sitio web. Gracias por su comprensión.</p>
+  <mat-card>
+    <mat-card-title>Datos Personales</mat-card-title>
+    <table>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput required type="text" formControlName="nombre" placeholder="Nombre"/>
+            <mat-error *ngIf="form.get('nombre')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput required type="text" formControlName="apellidos" placeholder="Apellidos"/>
+            <mat-error *ngIf="form.get('apellidos')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput type="text" formControlName="alias" placeholder="Alias"/>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput required type="text" formControlName="ci" [formControl]="ci" placeholder="Carné de Identidad"/>
+            <mat-error *ngIf="form.get('ci')">{{ getErrorMessageCI() }}</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <mat-form-field>
+            <mat-select required formControlName="provincia" placeholder="Provincia">
+              <mat-option *ngFor="let provincia of provincias" [value]="provincia.nombre" (onSelectionChange)="selectMunicipio(provincia.nombre)">{{ provincia.nombre }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('provincia')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <mat-select required formControlName="municipio" placeholder="Municipio">
+              <mat-option *ngFor="let municipio of municipios" [value]="municipio.nombre">{{ municipio.nombre }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('municipio')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput required type="text" formControlName="direccion" placeholder="Dirección"/>
+            <mat-error *ngIf="form.get('direccion')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput required type="text" formControlName="correo" placeholder="Correo Electrónico"/>
+            <mat-error *ngIf="form.get('correo').invalid">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput required type="text" formControlName="telefono" placeholder="Teléfono"/>
+            <mat-error *ngIf="form.get('telefono')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <mat-select required formControlName="raza" placeholder="Color de la Piel">
+              <mat-option *ngFor="let raza of razas" [value]="raza.nombre">{{ raza.nombre }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('raza')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput required type="number" formControlName="estatura" placeholder="Estatura (metros)"/>
+            <mat-error *ngIf="form.get('estatura')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput required type="number" formControlName="peso" placeholder="Peso (Kg)"/>
+            <mat-error *ngIf="form.get('peso')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput type="number" formControlName="hijos" placeholder="Número de Hijos"/>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <mat-select required formControlName="estado_civil" placeholder="Estado Civil">
+              <mat-option *ngFor="let estado_civil of estados_civiles" [value]="estado_civil.nombre">{{ estado_civil.nombre }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('estado_civil')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <mat-checkbox class="mat-checkbox-margin" color="primary" [(ngModel)]="licencia" [ngModelOptions]="{standalone: true}">Licencia de Conducción</mat-checkbox>
+        </td>
+        <td>
+          <section *ngIf="licencia" class="section">Categoría de la Licencia de Conducción</section>
+          <section *ngIf="licencia" class="section">
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="a1" [ngModelOptions]="{standalone: true}">A-1 Ciclomotor</mat-checkbox>
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="a" [ngModelOptions]="{standalone: true}">A Motocicleta</mat-checkbox>
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="b" [ngModelOptions]="{standalone: true}">B Automóvil</mat-checkbox>
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="c1" [ngModelOptions]="{standalone: true}">C-1 Camión (Hasta 7500 Kg)</mat-checkbox>
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="c" [ngModelOptions]="{standalone: true}">C Camión (Más de 7500 Kg)</mat-checkbox>
+          </section>
+          <section *ngIf="licencia" class="section">
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="d1" [ngModelOptions]="{standalone: true}">D-1 Microbus</mat-checkbox>
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="d" [ngModelOptions]="{standalone: true}">D Ómnibus</mat-checkbox>
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="e" [ngModelOptions]="{standalone: true}">E Articulado</mat-checkbox>
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="f" [ngModelOptions]="{standalone: true}">F Agro Industrial y de la Construcción</mat-checkbox>
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="fe" [ngModelOptions]="{standalone: true}">FE Tractor con Remolques</mat-checkbox>
+          </section>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <section class="section-margin">
+            <span>Militancia</span>
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="pcc" [ngModelOptions]="{standalone: true}">PCC</mat-checkbox>
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="ujc" [ngModelOptions]="{standalone: true}">UJC</mat-checkbox>
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="ctc" [ngModelOptions]="{standalone: true}">CTC</mat-checkbox>
+          </section>
+        </td>
+      </tr>
+    </table>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Datos Profesionales</mat-card-title>
+    <table>
+      <tr>
+        <td>
+          <mat-form-field>
+            <mat-select required formControlName="nivel_escolaridad" placeholder="Nivel de Escolaridad">
+              <mat-option *ngFor="let nivel_escolaridad of niveles_escolaridad" [value]="nivel_escolaridad.nombre">{{ nivel_escolaridad.nombre }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('nivel_escolaridad')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput required type="text" formControlName="titulo_graduado" placeholder="Título de Graduado"/>
+            <mat-error *ngIf="form.get('titulo_graduado')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput required type="number" formControlName="experiencia_laboral" placeholder="Experiencia Laboral (Años)"/>
+            <mat-error *ngIf="form.get('experiencia_laboral')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput type="text" formControlName="otros_estudios" placeholder="Otros Estudios Realizados"/>
+            <mat-error *ngIf="form.get('otros_estudios')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Trayectoria Laboral hasta la Actualidad</mat-card-title>
+    <table>
+      <tr>
+        <td>
+          <a mat-raised-button color="primary" (click)="openDialogTrayectoria()">Adicionar Trayectoria</a>
+        </td>
+      </tr>
+    </table>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let trayectoria of trayectoria_laboral">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ trayectoria[1] }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Cargo: {{ trayectoria[0] }}</p>
+        <p>Centro Laboral: {{ trayectoria[1] }}</p>
+        <p>Desde: {{ trayectoria[2] }}</p>
+        <p>Hasta: {{ trayectoria[3] }}</p>
+        <a mat-raised-button color="warn" (click)="deleteTrayectoria(trayectoria)">Eliminar Trayectoria</a>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Datos Laborales</mat-card-title>
+    <table>
+      <tr>
+        <td>
+          <mat-radio-button class="example-margin" color="primary" *ngFor="let situacion_laboral of situaciones_laborales" (change)="selectSituacionLaboral(situacion_laboral.nombre)">
+            {{ situacion_laboral.nombre }}
+          </mat-radio-button>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <mat-form-field *ngIf="vinculo_laboral || desmovilizado_far || minint">
+            <input matInput type="text" formControlName="centro_trabajo" placeholder="Centro de Trabajo Actual"/>
+            <mat-error *ngIf="form.get('centro_trabajo')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field *ngIf="vinculo_laboral || desmovilizado_far || minint">
+            <input matInput type="text" formControlName="organismo_trabajo" placeholder="Organismo al que Pertenece"/>
+            <mat-error *ngIf="form.get('organismo_trabajo')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field *ngIf="vinculo_laboral || desmovilizado_far || minint">
+            <input matInput type="text" formControlName="cargo_trabajo" placeholder="Cargo"/>
+            <mat-error *ngIf="form.get('cargo_trabajo')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <mat-form-field *ngIf="vinculo_laboral || desmovilizado_far || minint">
+            <mat-select formControlName="categoria_trabajo" placeholder="Categoría Ocupacional">
+              <mat-option *ngFor="let categoria of categorias" [value]="categoria.nombre">{{ categoria.nombre }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('categoria_trabajo')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field *ngIf="vinculo_laboral || desmovilizado_far || minint">
+            <input matInput type="text" formControlName="direccion_trabajo" placeholder="Dirección"/>
+            <mat-error *ngIf="form.get('direccion_trabajo')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field *ngIf="vinculo_laboral || desmovilizado_far || minint">
+            <input matInput type="text" formControlName="telefono_trabajo" placeholder="Teléfono"/>
+            <mat-error *ngIf="form.get('telefono_trabajo')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <mat-form-field *ngIf="vinculo_laboral || desmovilizado_far || minint">
+            <input matInput type="text" formControlName="otros_oficios" placeholder="Otros Oficios que Domina"/>
+            <mat-error *ngIf="form.get('otros_oficios')">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+  </mat-card>
+  <mat-checkbox class="mat-checkbox-margin" color="primary" [(ngModel)]="terminos" [ngModelOptions]="{standalone: true}">
+    Acepto los <a class="terminos" (click)="openTermsAndConditions()">Términos y Condiciones</a> expuestos para aspirar a pertenecer a la Bolsa Empleadora de Industrias NEXUS S.A.
+  </mat-checkbox>
+  <br />
+  <span class="button">
+    <button mat-raised-button [disabled]="!terminos" color="primary" type="submit">Salvar</button>
+  </span>
+</form>
+<mat-card *ngIf="isLoading" style="margin-top: 10%;">
+  <h1 style="text-align: center; padding-top: 25px; padding-bottom: 25px;">¡Gracias por su registro!</h1>
+  <h2 style="text-align: center; padding-top: 25px; padding-bottom: 25px;">A su dirección de correo le han llegado instrucciones de como proceder en caso de ser llamado para comenzar su proceso de inserción en la Bolsa Empleadora.</h2>
+  <h2 style="text-align: center; padding-top: 25px; padding-bottom: 25px;">Mucha Suerte.</h2>
+  <a href="https://www.nexus.co.cu/nexus/sucursal-empleadora/"><button mat-raised-button color="primary">Volver</button></a>
+</mat-card>

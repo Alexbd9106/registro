@@ -1,0 +1,70 @@
+mat-card {
+  margin-bottom: 1rem;
+}
+
+mat-form-field {
+  width: 90%
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+table {
+  width: 100%
+}
+
+.button {
+  float: right;
+  position: relative;
+}
+
+button {
+  margin-bottom: 1rem;
+}
+
+.example-margin {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.section {
+  text-align: center;
+}
+
+.section-margin {
+  margin-top: 20px;
+}
+
+.button-dialog {
+  float: right;
+  position: relative;
+  margin-left: 1rem;
+}
+
+input[type="file"] {
+  visibility: hidden;
+  float: left;
+}
+
+.previsualizacion {
+  height: 4rem;
+  margin-left: 3rem;
+}
+
+.previsualizacion img {
+  height: 100%;
+}
+
+.terminos {
+  color: blue;
+}
+
+h4, h5 {
+  text-align: center;
+}
+
+.encabezado {
+  font-weight: bold;
+}
+
