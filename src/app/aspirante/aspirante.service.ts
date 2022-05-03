@@ -12,7 +12,7 @@ export class AspiranteService {
   private aspirantes: Aspirante[] = [];
   private aspirantesUpdated = new Subject<Aspirante[]>();
 
-  private servidor: string = 'http://www.nexus.co.cu:3000';
+  private servidor: string = 'http://localhost:3000';
 
   private municipios: any[] = [];
 
