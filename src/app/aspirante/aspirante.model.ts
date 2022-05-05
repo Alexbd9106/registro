@@ -32,4 +32,5 @@ export interface Aspirante {
   direccion_trabajo: string;
   telefono_trabajo: string;
   otros_oficios: string;
+  estado: string;
 }

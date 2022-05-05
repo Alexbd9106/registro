@@ -209,7 +209,8 @@ export class AspiranteService {
             categoria_trabajo: aspirante.categoria_trabajo,
             direccion_trabajo: aspirante.direccion_trabajo,
             telefono_trabajo: aspirante.telefono_trabajo,
-            otros_oficios: aspirante.otros_oficios
+            otros_oficios: aspirante.otros_oficios,
+            estado: aspirante.estado
           };
         });
       }))
@@ -255,7 +256,8 @@ export class AspiranteService {
     categoria_trabajo: string,
     direccion_trabajo: string,
     telefono_trabajo: string,
-    otros_oficios: string
+    otros_oficios: string,
+    estado: string
   ) {
     const aspirante: Aspirante = {
       id: "",
@@ -290,7 +292,8 @@ export class AspiranteService {
       categoria_trabajo: categoria_trabajo,
       direccion_trabajo: direccion_trabajo,
       telefono_trabajo: telefono_trabajo,
-      otros_oficios: otros_oficios
+      otros_oficios: otros_oficios,
+      estado: estado
     }
     this.http.post<{ message: string }>(this.servidor + '/aspirantes', aspirante)
       .subscribe((responseData) => {
