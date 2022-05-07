@@ -1,0 +1,8 @@
+<app-header></app-header>
+<main>
+  <router-outlet></router-outlet>
+  <router-outlet *ngIf="isDesktopDevice" name="pc"></router-outlet>
+  <router-outlet *ngIf="isMobile || isTablet" name="mobil"></router-outlet>
+  <!-- <app-crear-aspirante *ngIf="isDesktopDevice"></app-crear-aspirante>
+  <app-crear-aspirante-mobil *ngIf="isMobile || isTablet"></app-crear-aspirante-mobil> -->
+</main>

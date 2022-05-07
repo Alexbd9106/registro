@@ -1,0 +1,35 @@
+<form [formGroup]="form" (submit)="onSaveTrayectoria()">
+  <table cellspacing="0">
+    <td>
+      <mat-form-field>
+        <input matInput required type="text" formControlName="actividad_desempennada" placeholder="Actividad Desempeñada"/>
+        <mat-error *ngIf="form.get('actividad_desempennada')">Este Campo no puede estar vacío</mat-error>
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field>
+        <input matInput required type="text" formControlName="centro_trabajo" placeholder="Centro de Trabajo"/>
+        <mat-error *ngIf="form.get('centro_trabajo')">Este Campo no puede estar vacío</mat-error>
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field>
+        <input matInput required type="date" formControlName="desde" placeholder="Desde"/>
+        <mat-error *ngIf="form.get('desde')">Este Campo no puede estar vacío</mat-error>
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field>
+        <input matInput required type="date" formControlName="hasta" placeholder="Hasta"/>
+        <mat-error *ngIf="form.get('hasta')">Este Campo no puede estar vacío</mat-error>
+      </mat-form-field>
+    </td>
+  </table>
+  <table cellspacing="0">
+    <td>
+      <span class="button">
+        <button matTooltip="Este botón solo se habilitará cuando llene todos los campos y si las fechas están puestas en el orden adecuado" matTooltipPosition="left" [disabled]="validDates() || form.invalid" mat-raised-button class="button-dialog" color="primary" type="submit" mat-dialog-close>Salvar</button>
+      </span>
+    </td>
+  </table>
+</form>

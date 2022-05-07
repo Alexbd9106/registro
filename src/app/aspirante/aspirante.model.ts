@@ -1,0 +1,36 @@
+export interface Aspirante {
+  id: string;
+  nombre: string;
+  apellidos: string;
+  alias: string;
+  ci: string;
+  edad: number;
+  sexo: string;
+  provincia: string;
+  municipio: string;
+  direccion: string;
+  correo: string;
+  telefono: string;
+  raza: string;
+  estatura: number;
+  peso: number;
+  estado_civil: string;
+  hijos: string;
+  licencia: boolean;
+  categoria_licencia: string;
+  militancia: string;
+  nivel_escolaridad: string;
+  titulo_graduado: string;
+  experiencia_laboral: number;
+  otros_estudios: string;
+  trayectoria_laboral: string;
+  situacion_laboral: string;
+  centro_trabajo: string;
+  organismo_trabajo: string;
+  cargo_trabajo: string;
+  categoria_trabajo: string;
+  direccion_trabajo: string;
+  telefono_trabajo: string;
+  otros_oficios: string;
+  estado: string;
+}
