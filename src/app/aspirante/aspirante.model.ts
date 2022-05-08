@@ -33,4 +33,6 @@ export interface Aspirante {
   telefono_trabajo: string;
   otros_oficios: string;
   estado: string;
+  causa_eliminacion: string;
+  causa_no_apto: string
 }
