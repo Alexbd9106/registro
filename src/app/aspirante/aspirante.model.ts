@@ -34,5 +34,29 @@ export interface Aspirante {
   otros_oficios: string;
   estado: string;
   causa_eliminacion: string;
-  causa_no_apto: string
+  causa_no_apto: string;
+  preseleccion: string;
+  fecha_inicio_proceso_investigativo: string;
+  fecha_fin_proceso_investigativo: string;
+  resultado_proceso_investigativo: string;
+  curriculum_vitae: boolean;
+  fecha_curriculum_vitae: string;
+  autobiografia: boolean;
+  fecha_autobiografia: string;
+  titulo: boolean;
+  fecha_titulo: string;
+  chequeo_medico: boolean;
+  fecha_chequeo_medico: string;
+  avales_cdr: boolean;
+  fecha_avales_cdr: string;
+  avales_centro_trabajo: boolean;
+  fecha_avales_centro_trabajo: string;
+  fotos: boolean;
+  fecha_fotos: string;
+  anexo1: boolean;
+  fecha_anexo1: string;
+  antecedentes: boolean;
+  fecha_antecedentes: string;
+  evaluacion_psicologica: string;
+  comite_admision: string
 }
