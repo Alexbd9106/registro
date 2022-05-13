@@ -341,6 +341,7 @@ export class CrearAspiranteMobilComponent implements OnInit {
         this.form.value.otros_oficios,
         "Candidato sin Procesar",
         "",
+<<<<<<< HEAD
         "",
         "",
         "",
@@ -370,6 +371,8 @@ export class CrearAspiranteMobilComponent implements OnInit {
         "",
         "",
         "",
+=======
+>>>>>>> 9dc826940ce7a980bb0b81e2b9385866da328c84
         ""
       );
     }
