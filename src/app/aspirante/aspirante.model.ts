@@ -34,6 +34,10 @@ export interface Aspirante {
   otros_oficios: string;
   estado: string;
   causa_eliminacion: string;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fe90531b6430192b00235399c82f7b0d6368aebf
   causa_no_apto: string;
   preseleccion: string;
   fecha_inicio_proceso_investigativo: string;
@@ -58,5 +62,17 @@ export interface Aspirante {
   antecedentes: boolean;
   fecha_antecedentes: string;
   evaluacion_psicologica: string;
+<<<<<<< HEAD
   comite_admision: string
+=======
+  comite_admision: string;
+  mixta: string;
+  cargo_mixta: string;
+  fecha_mixta: string;
+  causa_devolucion: string;
+  fecha_devolucion: string;
+=======
+  causa_no_apto: string
+>>>>>>> 9dc826940ce7a980bb0b81e2b9385866da328c84
+>>>>>>> fe90531b6430192b00235399c82f7b0d6368aebf
 }

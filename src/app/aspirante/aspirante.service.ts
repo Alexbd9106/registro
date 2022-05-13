@@ -212,6 +212,10 @@ export class AspiranteService {
             otros_oficios: aspirante.otros_oficios,
             estado: aspirante.estado,
             causa_eliminacion: aspirante.causa_eliminacion,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fe90531b6430192b00235399c82f7b0d6368aebf
             causa_no_apto: aspirante.causa_no_apto,
             preseleccion: aspirante.preseleccion,
             fecha_inicio_proceso_investigativo: aspirante.fecha_inicio_proceso_investigativo,
@@ -237,6 +241,17 @@ export class AspiranteService {
             fecha_antecedentes: aspirante.fecha_antecedentes,
             evaluacion_psicologica: aspirante.evaluacion_psicologica,
             comite_admision: aspirante.comite_admision,
+<<<<<<< HEAD
+=======
+            mixta: aspirante.mixta,
+            cargo_mixta: aspirante.cargo_mixta,
+            fecha_mixta: aspirante.fecha_mixta,
+            causa_devolucion: aspirante.causa_devolucion,
+            fecha_devolucion: aspirante.fecha_devolucion
+=======
+            causa_no_apto: aspirante.causa_no_apto
+>>>>>>> 9dc826940ce7a980bb0b81e2b9385866da328c84
+>>>>>>> fe90531b6430192b00235399c82f7b0d6368aebf
           };
         });
       }))
@@ -285,6 +300,10 @@ export class AspiranteService {
     otros_oficios: string,
     estado: string,
     causa_eliminacion: string,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fe90531b6430192b00235399c82f7b0d6368aebf
     causa_no_apto: string,
     preseleccion: string,
     fecha_inicio_proceso_investigativo: string,
@@ -309,7 +328,19 @@ export class AspiranteService {
     antecedentes: boolean,
     fecha_antecedentes: string,
     evaluacion_psicologica: string,
+<<<<<<< HEAD
     comite_admision: string
+=======
+    comite_admision: string,
+    mixta: string,
+    cargo_mixta: string,
+    fecha_mixta: string,
+    causa_devolucion: string,
+    fecha_devolucion: string,
+=======
+    causa_no_apto: string
+>>>>>>> 9dc826940ce7a980bb0b81e2b9385866da328c84
+>>>>>>> fe90531b6430192b00235399c82f7b0d6368aebf
   ) {
     const aspirante: Aspirante = {
       id: "",
@@ -347,6 +378,10 @@ export class AspiranteService {
       otros_oficios: otros_oficios,
       estado: estado,
       causa_eliminacion: causa_eliminacion,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fe90531b6430192b00235399c82f7b0d6368aebf
       causa_no_apto: causa_no_apto,
       preseleccion: preseleccion,
       fecha_inicio_proceso_investigativo: fecha_inicio_proceso_investigativo,
@@ -371,7 +406,19 @@ export class AspiranteService {
       antecedentes: antecedentes,
       fecha_antecedentes: fecha_antecedentes,
       evaluacion_psicologica: evaluacion_psicologica,
+<<<<<<< HEAD
       comite_admision: comite_admision
+=======
+      comite_admision: comite_admision,
+      mixta: mixta,
+      cargo_mixta: cargo_mixta,
+      fecha_mixta: fecha_mixta,
+      causa_devolucion: causa_devolucion,
+      fecha_devolucion: fecha_devolucion,
+=======
+      causa_no_apto: causa_no_apto
+>>>>>>> 9dc826940ce7a980bb0b81e2b9385866da328c84
+>>>>>>> fe90531b6430192b00235399c82f7b0d6368aebf
     }
     this.http.post<{ message: string }>(this.servidor + '/aspirantes', aspirante)
       .subscribe((responseData) => {
