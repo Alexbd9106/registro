@@ -153,8 +153,7 @@ export class CrearAspiranteMobilComponent implements OnInit {
       categoria_trabajo: new FormControl(""),
       direccion_trabajo: new FormControl(""),
       telefono_trabajo: new FormControl(""),
-      otros_oficios: new FormControl(""),
-      estado: new FormControl(""),
+      otros_oficios: new FormControl("")
     });
 
     this.aspiranteService.getAspirantes();
@@ -340,7 +339,9 @@ export class CrearAspiranteMobilComponent implements OnInit {
         this.form.value.direccion_trabajo,
         this.form.value.telefono_trabajo,
         this.form.value.otros_oficios,
-        this.form.value.estado
+        "Candidato sin Procesar",
+        "",
+        ""
       );
     }
   }
