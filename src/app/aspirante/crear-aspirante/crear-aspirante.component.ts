@@ -304,7 +304,6 @@ export class CrearAspiranteComponent implements OnInit {
         }
       }
 
-<<<<<<< HEAD
       let anexo1 =false
       let fecha_anexo1 = "";
 
@@ -313,8 +312,6 @@ export class CrearAspiranteComponent implements OnInit {
         fecha_anexo1 = "No es Necesario";
       }
 
-=======
->>>>>>> 9dc826940ce7a980bb0b81e2b9385866da328c84
       this.isLoading = true;
 
       this.aspiranteService.addAspirante(
@@ -352,7 +349,6 @@ export class CrearAspiranteComponent implements OnInit {
         this.form.value.otros_oficios,
         "Candidato sin Procesar",
         "",
-<<<<<<< HEAD
         "",
         "",
         "",
@@ -382,8 +378,6 @@ export class CrearAspiranteComponent implements OnInit {
         "",
         "",
         "",
-=======
->>>>>>> 9dc826940ce7a980bb0b81e2b9385866da328c84
         ""
       );
     }

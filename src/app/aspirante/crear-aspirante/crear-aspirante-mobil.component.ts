@@ -304,6 +304,14 @@ export class CrearAspiranteMobilComponent implements OnInit {
         }
       }
 
+      let anexo1 =false
+      let fecha_anexo1 = "";
+
+      if(this.aspiranteService.calcularSexo(this.form) == "Femenino") {
+        anexo1 = true;
+        fecha_anexo1 = "No es Necesario";
+      }
+
       this.isLoading = true;
 
       this.aspiranteService.addAspirante(
@@ -341,7 +349,6 @@ export class CrearAspiranteMobilComponent implements OnInit {
         this.form.value.otros_oficios,
         "Candidato sin Procesar",
         "",
-<<<<<<< HEAD
         "",
         "",
         "",
@@ -361,18 +368,16 @@ export class CrearAspiranteMobilComponent implements OnInit {
         "",
         false,
         "",
+        anexo1,
+        fecha_anexo1,
         false,
         "",
-        false,
         "",
         "",
         "",
         "",
         "",
         "",
-        "",
-=======
->>>>>>> 9dc826940ce7a980bb0b81e2b9385866da328c84
         ""
       );
     }
