@@ -304,7 +304,7 @@ export class CrearAspiranteMobilComponent implements OnInit {
         }
       }
 
-      let anexo1 =false
+      let anexo1 = false
       let fecha_anexo1 = "";
 
       if(this.aspiranteService.calcularSexo(this.form) == "Femenino") {
