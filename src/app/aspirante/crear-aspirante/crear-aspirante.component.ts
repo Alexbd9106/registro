@@ -304,11 +304,7 @@ export class CrearAspiranteComponent implements OnInit {
         }
       }
 
-<<<<<<< HEAD
-      let anexo1 =false
-=======
       let anexo1 = false
->>>>>>> 89326b2e91bc8bef0ef805794e946db9bce2e649
       let fecha_anexo1 = "";
 
       if(this.aspiranteService.calcularSexo(this.form) == "Femenino") {
