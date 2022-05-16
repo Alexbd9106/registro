@@ -34,7 +34,6 @@ export interface Aspirante {
   otros_oficios: string;
   estado: string;
   causa_eliminacion: string;
-<<<<<<< HEAD
   causa_no_apto: string;
   preseleccion: string;
   fecha_inicio_proceso_investigativo: string;
@@ -65,7 +64,4 @@ export interface Aspirante {
   fecha_mixta: string;
   causa_devolucion: string;
   fecha_devolucion: string;
-=======
-  causa_no_apto: string
->>>>>>> 9dc826940ce7a980bb0b81e2b9385866da328c84
 }

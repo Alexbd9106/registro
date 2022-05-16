@@ -13,7 +13,7 @@ export class RazaService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  servidor: string = "http://localhost:3000"
+  servidor: string = "http://www.nexus.co.cu:3000"
 
   getRazas() {
     this.http.get<{mensaje: string, razas: any}>(this.servidor + "/razas")
